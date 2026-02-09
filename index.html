@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Quant Coders | Club</title>
+    <style>
+        :root { 
+            --bg: #050505; 
+            --accent: #00ff41; 
+            --text: #ffffff; 
+            --secondary: #111111;
+        }
+
+        body { 
+            font-family: 'Courier New', Courier, monospace; 
+            background: var(--bg); 
+            color: var(--text); 
+            margin: 0; 
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav { 
+            background: rgba(0, 0, 0, 0.9); 
+            padding: 20px; 
+            border-bottom: 1px solid var(--accent); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a { 
+            color: var(--text); 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--accent); }
+
+        /* Sections */
+        .section { 
+            display: none; 
+            padding: 60px 20px; 
+            max-width: 900px; 
+            margin: auto; 
+            text-align: center;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        .active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Styling */
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .code-snippet {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            text-align: left;
+            margin: 20px 0;
+            color: #50fa7b;
+            font-size: 0.85rem;
+        }
+
+        /* Form Styling */
+        .reg-card {
+            background: var(--secondary);
+            padding: 40px;
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 10px 0; 
+            background: #000; 
+            border: 1px solid var(--accent); 
+            color: var(--accent); 
+            box-sizing: border-box;
+        }
+        button { 
+            width: 100%; 
+            padding: 12px; 
+            background: var(--accent); 
+            color: #000; 
+            font-weight: bold; 
+            border: none; 
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { filter: brightness(1.2); }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: 0.4s;
+        }
+        .gallery-grid img:hover {
+            border-color: var(--accent);
+            transform: scale(1.03);
+        }
+
+        /* Occasions */
+        .event {
+            text-align: left;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            background: #111;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a onclick="showSection('home')">HOME</a>
+    <a onclick="showSection('register')">JOIN_US</a>
+    <a onclick="showSection('gallery')">GALLERY</a>
+    <a onclick="showSection('events')">EVENTS</a>
+</nav>
+
+<div id="home" class="section active">
+    <h1 class="hero-title">SUPER QUANT CODERS</h1>
+    <p>// Quantitative Finance & Algorithmic Development Club</p>
+    
+    <div class="code-snippet">
+        <span style="color: #6272a4;"># Daily Algorithm</span><br>
+        def high_freq_trade(price_data):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if spread > threshold:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;execute_limit_order("BUY")
+    </div>
+    <br>
+    <button onclick="showSection('register')" style="width: auto; padding: 12px 30px;">GET STARTED</button>
+</div>
+
+<div id="register" class="section">
+    <div class="reg-card">
+        <h2>MEMBER REGISTRATION</h2>
+        <p>Your data will be pushed to the Google Sheets database.</p>
+        <input type="text" id="userName" placeholder="Full Name">
+        <input type="email" id="userEmail" placeholder="Student Email">
+        <button onclick="handleForm()">SUBMIT_DATA</button>
+        <p id="statusMsg" style="margin-top: 15px;"></p>
+    </div>
+</div>
+
+<div id="gallery" class="section">
+    <h2>CLUB GALLERY</h2>
+    <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?w=500" alt="Work">
+        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=500" alt="Code">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500" alt="Matrix">
+        <img src="https://images.unsplash.com/photo-1611974714024-462cd067386d?w=500" alt="Chart">
+        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500" alt="Matrix">
+        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=500" alt="Code">
+    </div>
+</div>
+
+<div id="events" class="section">
+    <h2>UPCOMING OCCASIONS</h2>
+    <div class="event">
+        <h3>[01] Python for Quants Workshop</h3>
+        <p>Date: Feb 25, 2026 | Location: Computer Lab 3</p>
+    </div>
+    <div class="event">
+        <h3>[02] Algorithmic Trading Contest</h3>
+        <p>Date: March 10, 2026 | Location: Virtual</p>
+    </div>
+</div>
+
+<script>
+    // Tab Switching Function
+    function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(s => s.classList.remove('active'));
+        
+        // Show target section
+        document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Google Sheets Submission
+    async function handleForm() {
+        const url = 'https://script.google.com/macros/s/AKfycbwVcZ4YFZwfr0bf5NgJnYME-iLwxjIsviWEhGEh05AACebTs1_dKQw3I4Fc96jOettQ/exec';
+        const name = document.getElementById('userName').value;
+        const email = document.getElementById('userEmail').value;
+        const status = document.getElementById('statusMsg');
+
+        if (!name || !email) {
+            status.innerHTML = "❌ Error: Fill all fields.";
+            status.style.color = "red";
+            return;
+        }
+
+        status.innerHTML = "⏳ Syncing with Cloud...";
+        status.style.color = "var(--accent)";
+
+        try {
+            await fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, email: email })
+            });
+            status.innerHTML = "✅ SUCCESS: You are registered!";
+            document.getElementById('userName').value = "";
+            document.getElementById('userEmail').value = "";
+        } catch (error) {
+            status.innerHTML = "❌ Connection Failed.";
+            status.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>
